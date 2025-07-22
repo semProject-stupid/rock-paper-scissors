@@ -1,0 +1,8 @@
+learned: 
+- using math.random and floor
+
+
+to add:
+- error handling for invalid input for human choice.
+- loop again if user wants to play again (best of N rounds or exit at any time)
+- against two players
