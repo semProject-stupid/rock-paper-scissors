@@ -1,0 +1,150 @@
+@font-face {
+    font-family: ThunderBoom;
+    src: url("./fonts/ThunderBoom-JRYjM.ttf");
+}
+@font-face {
+    font-family: TestFontHF;
+    src: url("./fonts/TestFontHF.ttf");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.title {
+    /* border: 2px solid black; */
+    text-align: center;
+    padding: 10px;
+    font-family: ThunderBoom, sans-serif;
+    font-size: 80px;
+    background-color: rgb(190, 22, 90);
+    color: white;
+}
+.main-content {
+    /* border: 2px solid magenta; */
+    display: flex;
+    /* gap: 20px; */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.hand {
+    /* border: 2px solid orange; */
+    display: flex;
+    align-items: center;
+}
+.hand img {
+    width: 300px;
+    height: auto;
+}
+.middle-content {
+    /* border: 2px solid brown; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: TestFontHF, sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    text-align: center;
+}
+.score {
+    /* border: 2px solid green; */
+}
+.results {
+    /* border: 2px solid yellow; */
+    font-size: 25px;
+}
+.final-result {
+    /* border: 2px solid orange; */
+    margin-top: 40px;
+    font-size: 40px;
+}
+.right-hand {
+    /* border: 2px solid purple; */
+}
+.buttons {
+    /* border: 2px solid blue; */
+    padding-top: 0px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 40px;
+}
+.buttons button {
+    border: none;
+}
+.buttons button:hover {
+    cursor: pointer;
+    animation: scaleShake 0.6s ease-in-out;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+
+#rock {
+    background-image: url("./images/rock.jpg");
+}
+#paper {
+    background-image: url("./images/paper.jpg");
+}
+#scissors {
+    background-image: url("./images/scissors.jpg");
+}
+.button-text {
+    /* border: 2px solid purple; */
+    margin-top: 100px;
+    padding-top: 50px;
+    font-family: ThunderBoom, sans-serif;
+    font-size: 20px;
+    color: rgb(190, 22, 90);
+}
+/* media queries for responsive design */
+@media (max-width: 400px) {
+    .title {
+        font-size: 40px;
+    }
+    .middle-content {
+        font-size: 20px;
+    }
+    .results {
+        font-size: 20px;
+    }
+    .final-result {
+        font-size: 20px;
+    }
+    .hand img {
+        width: 100px;
+        height: auto;
+    }
+    .image {
+        width: 50px;
+        height: auto;
+    }
+}
+
+/* animation effects */
+@keyframes scaleShake {
+    0%   { transform: scale(1) translateX(0); }
+    20%  { transform: scale(1.1) translateX(-2px); }
+    40%  { transform: scale(1.1) translateX(2px); }
+    60%  { transform: scale(1.1) translateX(-2px); }
+    80%  { transform: scale(1.1) translateX(2px); }
+    100% { transform: scale(1) translateX(0); }
+}
