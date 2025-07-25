@@ -6,3 +6,6 @@ to add:
 - error handling for invalid input for human choice.
 - loop again if user wants to play again (best of N rounds or exit at any time)
 - against two players
+
+- passing second argument as a callback function and not immediately.
+ie, addEventListener("click", function) is wrong. should be ("Click", () => function);

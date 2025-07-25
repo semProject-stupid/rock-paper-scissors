@@ -1,62 +1,66 @@
-function getChoice(num) {
+let humanScore = 0;
+let computerScore = 0;
+let rounds = 0;
+
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorButton = document.querySelector('#scissors');
+
+const compScoreP = document.querySelector('.computer-score');
+const humanScoreP = document.querySelector('.human-score');
+const roundsPlayed = document.querySelector('.rounds');
+
+const compChoiceP = document.querySelector(".computer-choice");
+const humanChoiceP = document.querySelector(".human-choice");
+const finalResultP = document.querySelector(".final-result");
+
+rockButton.addEventListener("click", () => playRound('rock'));
+paperButton.addEventListener("click", () => playRound('paper'));
+scissorButton.addEventListener("click", () => playRound('scissors'));
+
+function getComputerChoice() {
+    const num = Math.floor(Math.random() * 3) + 1;
     if (num == 1) {return "rock";}
     else if (num == 2) {return "paper";}
     else {return "scissors";}
 }
 
-function getComputerChoice() {
-    const computerNum = Math.floor(Math.random() * 3) + 1;
-    return getChoice(computerNum);
-}
+function playRound(humanChoice) {
+    if (rounds == 5) {
+        rounds = 0;
+        humanScore = 0;
+        computerScore = 0;
+        finalResultP.textContent = "";
+    }
+    let computerChoice = getComputerChoice();
+    compChoiceP.textContent =  `Computer choice: ${computerChoice}`;
+    humanChoiceP.textContent = `Human choice: ${humanChoice}`;
 
-function getHumanChoice() {
-    const humanNum = prompt("Enter 1 for Rock, 2 for Paper, and 3 for Scissors");
-    return getChoice(humanNum);
-}
-
-function playRound(humanChoice, computerChoice) {
     if ((computerChoice == "rock" && humanChoice == "scissors") 
     || (computerChoice == "paper" && humanChoice == "rock") 
     || (computerChoice == "scissors" && humanChoice == "paper")) {
-        return 1;
+        computerScore++;
     } 
     //conditions for human to win
     else if ((humanChoice == "rock" && computerChoice == "scissors") 
         || (humanChoice == "paper" && computerChoice == "rock")
         || (humanChoice == "scissors" && computerChoice == "paper")) {
-        return 2;
+        humanScore++;
     }
-    //conditions for draw
-    else {
-        return 3;
+    rounds++;
+    roundsPlayed.textContent = `Rounds Played: ${rounds}`;
+    compScoreP.textContent = `Computer: ${computerScore}`;
+    humanScoreP.textContent = `You: ${humanScore}`;
+    
+    //displaying results when 5 ronds are completed
+     if (rounds === 5) {
+        if (humanScore > computerScore) {
+            finalResultP.textContent = "You win!! stupid comPOOter!";
+        } else if (computerScore > humanScore) {
+            finalResultP.textContent = "Computer Wins! The Singularity is nigh upon us :(";
+        } else {
+            finalResultP.textContent = "No one won :(";
+        }
+        return;
     }
 }
-function playGame(){
-    let humanScore = 0;
-    let computerScore = 0;
-    //running 5 rounds
-    for (let i = 1; i < 6; i++){
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        let returnedValue = playRound(humanChoice, computerChoice);
-        if (returnedValue == 1) {
-            computerScore += 1;
-        }
-        else if (returnedValue == 2) {
-            humanScore += 1;
-        }
-        //if 3 is returned, nothing will happen (no one gets a score in draw)
-    }
-    //declaring a winner
-    if (computerScore > humanScore) {
-        console.log("Computer Wins! The Singularity is nigh upon us :(");
-    }
-    else if (humanScore > computerScore) {
-        console.log("You win!! stupid comPOOter!");
-    }
-    else {
-        console.log("No one won :(");
-    }
-}
-
-playGame();
