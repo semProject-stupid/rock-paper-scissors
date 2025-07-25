@@ -10,7 +10,5 @@ This is a Rock, Paper, Scissors game. The first version was played on the consol
 - Rock icon:
     - Vecteezy
 
-- Paper icon:
-    - 
 - Scissors icon: 
     - Pikbest | Graphic Design Templates
