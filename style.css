@@ -41,6 +41,11 @@ body {
     /* border: 2px solid orange; */
     display: flex;
     align-items: center;
+    flex-direction: column;
+}
+.label {
+    font-family: TestFontHF, sans-serif;
+    margin-top: 20px;
 }
 .hand img {
     width: 200px;

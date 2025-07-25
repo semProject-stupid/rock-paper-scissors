@@ -91,12 +91,18 @@ function playRound(humanChoice) {
     || (computerChoice == "paper" && humanChoice == "rock") 
     || (computerChoice == "scissors" && humanChoice == "paper")) {
         computerScore++;
+        finalResultP.textContent = "Computer wins this round!\nPlay another move.";
     } 
     //conditions for human to win
     else if ((humanChoice == "rock" && computerChoice == "scissors") 
         || (humanChoice == "paper" && computerChoice == "rock")
         || (humanChoice == "scissors" && computerChoice == "paper")) {
         humanScore++;
+        finalResultP.textContent = "You win this round!\nPlay another move.";
+    }
+    //conditions for draw
+    else {
+        finalResultP.textContent = "Draw.\nPlay another move.";
     }
     rounds++;
     roundsPlayed.textContent = `Rounds Played: ${rounds}`;
